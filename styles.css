@@ -93,29 +93,6 @@ body {
   max-width: 80%;
 }
 
-@media (max-width: 64rem) { /* 1024px */
-  .hero-title {
-    font-size: 2.5rem;
-  }
-}
-
-@media (max-width: 48rem) { /* 768px */
-  .hero {
-    height: 15.625rem; /* 250px */
-  }
-
-  .hero-title {
-    font-size: 2rem;
-    max-width: 90%;
-  }
-
-  .hero::before,
-  .hero::after {
-    width: 9.375rem; /* 150px */
-    height: 9.375rem; /* 150px */
-  }
-}
-
 /* Header */
 .header {
   background-color: var(--primary-color);
@@ -143,12 +120,6 @@ body {
 .menu-toggle:hover,
 .menu-toggle:focus {
   background-color: var(--accent-color);
-}
-
-@media (max-width: 48rem) { /* 768px */
-  .menu-toggle {
-    display: block;
-  }
 }
 
 .main-title {
@@ -321,22 +292,8 @@ body {
   transition: padding var(--transition-speed);
 }
 
-@media (min-width: 49rem) { /* Mayor a 768px */
-  .footer {
-    flex-direction: row;
-    justify-content: center;
-  }
-}
-
 .social-links {
   margin-top: var(--padding-sm);
-}
-
-@media (min-width: 49rem) { /* Mayor a 768px */
-  .social-links {
-    margin-top: 0;
-    margin-left: var(--padding-md);
-  }
 }
 
 .social-links a {
@@ -349,109 +306,6 @@ body {
 .social-links a:hover,
 .social-links a:focus {
   color: var(--secondary-color);
-}
-
-/* Responsive Adjustments */
-@media (max-width: 64rem) { /* 1024px */
-  .container {
-    padding: var(--padding-lg);
-  }
-
-  .hero-title {
-    font-size: 2.5rem;
-  }
-
-  .section-title {
-    font-size: 1.75rem;
-  }
-}
-
-@media (max-width: 48rem) { /* 768px */
-  .container {
-    padding: var(--padding-md);
-    width: 100%;
-  }
-
-  .section-title {
-    font-size: 1.5rem;
-  }
-
-  .accordion {
-    font-size: 1rem;
-    padding: var(--padding-sm);
-  }
-
-  .exercise-list li,
-  .finalization li,
-  .nutrition-list li {
-    padding-left: 1.5625rem; /* 25px */
-    font-size: 0.9rem;
-  }
-
-  .nutrition-section {
-    padding: var(--padding-md);
-  }
-
-  .nutrition-details h3 {
-    font-size: 1.25rem;
-  }
-
-  /* Ajustar el tamaño de los iconos */
-  .section-title i,
-  .accordion i {
-    font-size: 1.25rem;
-  }
-
-  /* Asegurar que las imágenes y otros medios sean responsivos */
-  img {
-    max-width: 100%;
-    height: auto;
-  }
-
-  /* Mejorar la accesibilidad de los botones */
-  .accordion {
-    padding: 0.75rem;
-  }
-
-  .footer {
-    padding: var(--padding-sm);
-  }
-
-  .social-links a {
-    font-size: 1.25rem;
-    margin: 0 0.5rem; /* 0 8px */
-  }
-}
-
-@media (max-width: 32rem) { /* 512px */
-  .hero-title {
-    font-size: 1.75rem;
-  }
-
-  .section-title {
-    font-size: 1.25rem;
-  }
-
-  .accordion {
-    font-size: 0.9rem;
-    padding: 0.5rem;
-  }
-
-  .exercise-list li,
-  .finalization li,
-  .nutrition-list li {
-    padding-left: 1.25rem; /* 20px */
-    font-size: 0.8rem;
-  }
-
-  .nutrition-details h3 {
-    font-size: 1rem;
-  }
-
-  .social-links a {
-    font-size: 1rem;
-    margin: 0 0.375rem; /* 0 6px */
-  }
 }
 
 /* Accessibility Enhancements */
