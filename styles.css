@@ -228,3 +228,53 @@ footer {
   position: relative;
   box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
 }
+
+/* Media Queries para Pantallas Móviles */
+@media (max-width: 768px) {
+  /* Mostrar el botón de menú */
+  .menu-toggle {
+    display: block;
+    position: absolute;
+    top: 1rem;
+    left: 1rem;
+    z-index: 1000;
+  }
+
+  /* Ocultar la barra lateral por defecto */
+  .sidebar {
+    transform: translateX(-100%);
+    transition: transform 0.3s ease-in-out;
+  }
+
+  /* Mostrar la barra lateral cuando está activa */
+  .sidebar.active {
+    transform: translateX(0);
+  }
+
+  /* Ajustar el contenido principal */
+  main {
+    margin-left: 0;
+    padding: 1rem;
+  }
+
+  /* Ajustar el encabezado */
+  header {
+    position: relative;
+  }
+
+  /* Ajustar estilos de acordeón */
+  .accordion {
+    font-size: 1rem;
+    padding: 0.75rem;
+  }
+
+  /* Ajustar paneles de acordeón */
+  .panel {
+    padding: 0 0.5rem;
+  }
+
+  /* Ajustar texto y elementos */
+  body {
+    font-size: 16px;
+  }
+}
