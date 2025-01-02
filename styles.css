@@ -1,280 +1,365 @@
-/* Reset básico */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+/* Import Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
+/* Import Font Awesome */
+@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css');
+
+/* Variables */
+:root {
+  /* Color Palette */
+  --primary-color: #2c3e50;
+  --secondary-color: #18bc9c;
+  --accent-color: #3498db;
+  --background-color: #f5f7fa;
+  --text-color: #333333;
+  --light-gray: #bdc3c7;
+  --dark-gray: #7f8c8d;
+  --white: #ffffff;
+
+  /* Typography */
+  --font-family: 'Roboto', sans-serif;
+  --font-size-base: 1rem; /* 16px */
+  --font-size-lg: 1.25rem;
+  --font-size-xl: 2rem;
+  --line-height: 1.6;
+
+  /* Spacing */
+  --padding-sm: 0.625rem; /* 10px */
+  --padding-md: 1.25rem;  /* 20px */
+  --padding-lg: 2.5rem;   /* 40px */
+
+  /* Border Radius */
+  --border-radius: 0.5rem; /* 8px */
+
+  /* Transition */
+  --transition-speed: 0.3s;
 }
 
-/* Fuente y colores base */
+/* Global Styles */
 body {
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  background: linear-gradient(to right, #f3f9ff, #edf7fa);
-  color: #333;
+  font-family: var(--font-family);
+  font-size: var(--font-size-base);
+  line-height: var(--line-height);
+  margin: 0;
+  background-color: var(--background-color);
+  color: var(--text-color);
 }
 
-/* Encabezado */
-header {
-  text-align: center;
-  padding: 1rem;
-  background-color: #ffffffaa;
-  backdrop-filter: blur(10px);
-  margin-bottom: 1rem;
+/* Container */
+.container {
+  max-width: 68.75rem; /* 1100px */
+  margin: 0 auto;
+  padding: var(--padding-md);
+}
+
+/* Hero Section */
+.hero {
   position: relative;
+  width: 100%;
+  height: 25rem; /* 400px */
+  background: linear-gradient(135deg, var(--primary-color) 0%, var(--accent-color) 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--white);
+  text-align: center;
+  overflow: hidden;
 }
 
-header h1 {
-  font-size: 2rem;
-  color: #007BFF;
-  margin-bottom: 0.5rem;
+.hero::before,
+.hero::after {
+  content: '';
+  position: absolute;
+  width: 12.5rem; /* 200px */
+  height: 12.5rem; /* 200px */
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 50%;
+  z-index: 1;
+}
+
+.hero::before {
+  top: -3.125rem; /* -50px */
+  left: -3.125rem; /* -50px */
+}
+
+.hero::after {
+  bottom: -3.125rem; /* -50px */
+  right: -3.125rem;  /* -50px */
+}
+
+.hero-title {
+  position: relative;
+  z-index: 2;
+  font-size: 3rem;
+  font-weight: 700;
+  max-width: 80%;
+}
+
+@media (max-width: 48rem) { /* 768px */
+  .hero {
+    height: 15.625rem; /* 250px */
+  }
+
+  .hero-title {
+    font-size: 2rem;
+    max-width: 90%;
+  }
+
+  .hero::before,
+  .hero::after {
+    width: 9.375rem; /* 150px */
+    height: 9.375rem; /* 150px */
+  }
+}
+
+/* Header */
+.header {
+  background-color: var(--primary-color);
+  color: var(--white);
+  padding: var(--padding-md);
+  text-align: center;
+  position: relative;
+  border-radius: var(--border-radius) var(--border-radius) 0 0;
+}
+
+.menu-toggle {
+  display: none;
+  position: absolute;
+  top: var(--padding-sm);
+  left: var(--padding-sm);
+  background-color: var(--secondary-color);
+  border: none;
+  color: var(--white);
+  padding: 0.625rem 0.9375rem; /* 10px 15px */
+  cursor: pointer;
+  border-radius: 0.3125rem; /* 5px */
+  transition: background-color var(--transition-speed);
+}
+
+.menu-toggle:hover,
+.menu-toggle:focus {
+  background-color: var(--accent-color);
+}
+
+@media (max-width: 48rem) { /* 768px */
+  .menu-toggle {
+    display: block;
+  }
+}
+
+.main-title {
+  margin: 0;
+  font-size: 2.5rem;
+  font-weight: 700;
 }
 
 .disclaimer {
-  font-size: 0.9rem;
-  color: #666;
+  font-size: 0.875rem;
+  margin-top: 0.625rem; /* 10px */
+  color: var(--light-gray);
 }
 
-/* Botón de menú para móviles */
-.menu-toggle {
-  display: none;
-  background-color: #007BFF;
-  color: white;
-  padding: 0.5rem 1rem;
-  cursor: pointer;
-  border: none;
-  border-radius: 4px;
-  font-size: 1.2rem;
+/* Section Titles */
+.section-title {
+  font-size: 2rem;
+  margin-bottom: var(--padding-sm);
+  display: flex;
+  align-items: center;
+  gap: 0.625rem; /* 10px */
+  color: var(--primary-color);
 }
 
-/* Menú lateral fijo */
-.sidebar {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 15rem;
-  height: 100vh;
-  background-color: #0066cc;
-  padding-top: 5rem;
-  box-shadow: 2px 0 5px rgba(0,0,0,0.2);
-  transition: transform 0.3s ease-in-out;
+/* General Sections */
+.intro-section,
+.nutrition-section,
+.progress-section,
+.motivation-section,
+.final-notes {
+  padding: var(--padding-md);
+  margin: var(--padding-md) 0;
+  background-color: var(--white);
+  border-radius: var(--border-radius);
+  box-shadow: 0 0.25rem 0.375rem rgba(0, 0, 0, 0.1);
 }
 
-.sidebar ul {
+/* Nutrición Section */
+.nutrition-section {
+  padding: var(--padding-lg);
+}
+
+.nutrition-section .section-title {
+  font-size: var(--font-size-xl);
+  margin-bottom: var(--padding-md);
+}
+
+.nutrition-list {
   list-style: none;
+  padding: 0;
+  margin: var(--padding-md) 0;
 }
 
-.sidebar li {
-  margin-bottom: 1rem;
-  text-align: center;
+.nutrition-list li {
+  position: relative;
+  padding-left: 2.1875rem; /* 35px */
+  margin-bottom: var(--padding-sm);
+  font-size: 1rem;
+  color: var(--text-color);
 }
 
-.sidebar a {
-  color: #fff;
-  text-decoration: none;
-  font-weight: bold;
-  display: inline-block;
-  width: 100%;
-  padding: 0.5rem 0;
-  transition: background 0.3s;
+.nutrition-list li::before {
+  content: "\f00c";
+  font-family: 'Font Awesome 5 Free';
+  font-weight: 900;
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--secondary-color);
 }
 
-.sidebar a:hover {
-  background: #0052a4;
+.nutrition-details h3 {
+  color: var(--secondary-color);
+  font-size: 1.5rem;
+  margin-top: var(--padding-lg);
+  margin-bottom: var(--padding-sm);
 }
 
-/* Contenido principal */
-main {
-  margin-left: 16rem; /* espacio para la sidebar */
-  padding: 1rem;
+.nutrition-details p {
+  font-size: 1rem;
+  line-height: 1.6;
+  margin-bottom: var(--padding-sm);
 }
 
-/* Secciones principales */
-.intro-section {
-  background-color: #ffffffdd;
-  padding: 2rem;
-  margin-bottom: 2rem;
-  border-radius: 8px;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-}
-
-.intro-section h2 {
-  color: #17a2b8;
-  margin-bottom: 0.5rem;
-}
-
+/* Day Sections */
 .day-section {
-  margin-bottom: 1rem;
+  margin: var(--padding-md) 0;
 }
 
-/* Botón de acordeón */
 .accordion {
-  background-color: #007BFF;
-  color: white;
+  background-color: var(--secondary-color);
+  color: var(--white);
   cursor: pointer;
-  padding: 1rem;
+  padding: var(--padding-md);
   width: 100%;
+  border: none;
   text-align: left;
   outline: none;
-  border: none;
-  border-radius: 6px;
-  margin-bottom: 0.5rem;
-  font-size: 1.1rem;
-  transition: background 0.4s;
+  font-size: 1.2rem;
+  transition: background-color var(--transition-speed);
+  display: flex;
+  align-items: center;
+  gap: 0.625rem; /* 10px */
+  border-radius: var(--border-radius);
 }
 
-.accordion:hover {
-  background-color: #0056b3;
+.accordion:hover,
+.accordion:focus {
+  background-color: var(--accent-color);
 }
 
-/* Panel que contiene el contenido del acordeón */
+/* Active Accordion */
+.accordion.active {
+  background-color: var(--accent-color);
+}
+
 .panel {
-  background-color: #ffffffdd;
+  padding: 0 var(--padding-md);
+  background-color: var(--white);
   max-height: 0;
-  opacity: 0;
   overflow: hidden;
-  transition: max-height 0.4s ease, opacity 0.4s ease;
-  padding: 0 1rem;
-  border-radius: 6px;
-  margin-bottom: 1rem;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  transition: max-height var(--transition-speed) ease-out;
+  border-left: 0.25rem solid var(--secondary-color);
 }
 
-.panel.show {
-  max-height: 2000px; /* alto suficiente para exhibir contenido */
-  opacity: 1;
-  padding-bottom: 1rem;
-}
-
-.panel ol,
-.panel ul {
-  margin: 1rem 0;
-  padding-left: 1.5rem;
-}
-
-.panel li {
-  margin-bottom: 0.6rem;
-}
-
-.how-to {
+.exercise-list li,
+.finalization li,
+.nutrition-list li {
+  margin: 0.625rem 0; /* 10px 0 */
+  list-style: none;
+  position: relative;
+  padding-left: 1.5625rem; /* 25px */
   font-size: 0.9rem;
-  color: #6c757d;
-  margin-bottom: 0.5rem;
 }
 
-.finalization {
-  list-style: square;
+.exercise-list li::before,
+.nutrition-list li::before {
+  content: "\f00c";
+  font-family: 'Font Awesome 5 Free';
+  font-weight: 900;
+  position: absolute;
+  left: 0;
+  color: var(--secondary-color);
 }
 
-/* Secciones adicionales */
-.nutrition-section {
-  background: #f9f9f9;
-  padding: 1.5rem;
-  border-radius: 8px;
-  margin: 1rem 0;
-}
-
-.nutrition-section h2 {
-  color: #28a745;
-}
-
-.nutrition-section ul,
-.nutrition-section ol {
-  margin-left: 1.5rem;
-}
-
-.nutrition-section p {
-  margin-bottom: 1rem;
-}
-
-.progress-section {
-  background: #f1f8e9;
-  padding: 1.5rem;
-  border-radius: 8px;
-  margin: 1rem 0;
-}
-
-.progress-section h2 {
-  color: #ffc107;
-}
-
-.progress-section ul {
-  margin-left: 1.5rem;
-}
-
-.motivation-section {
-  background: #fff3cd;
-  padding: 1.5rem;
-  border-radius: 8px;
-  margin: 1rem 0;
-}
-
-.motivation-section h2 {
-  color: #dc3545;
-}
-
-.motivation-section blockquote {
-  font-style: italic;
-  margin: 1rem 0;
-  padding-left: 1rem;
-  border-left: 4px solid #6c757d;
+.finalization li::before {
+  content: "\f0c1";
+  font-family: 'Font Awesome 5 Free';
+  font-weight: 900;
+  position: absolute;
+  left: 0;
+  color: var(--accent-color);
 }
 
 /* Footer */
-footer {
-  margin-left: 16rem; /* coincide con el margen de main */
+.footer {
+  background-color: var(--primary-color);
+  color: var(--white);
   text-align: center;
-  padding: 1rem;
-  background-color: #ffffffaa;
-  backdrop-filter: blur(10px);
-  position: relative;
-  box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
+  padding: var(--padding-md);
+  border-radius: 0 0 var(--border-radius) var(--border-radius);
 }
 
-/* Media Queries para Pantallas Móviles */
-@media (max-width: 768px) {
-  /* Mostrar el botón de menú */
-  .menu-toggle {
-    display: block;
-    position: absolute;
-    top: 1rem;
-    left: 1rem;
-    z-index: 1000;
+.social-links {
+  margin-top: var(--padding-sm);
+}
+
+.social-links a {
+  color: var(--white);
+  margin: 0 0.625rem; /* 0 10px */
+  font-size: 1.5rem;
+  transition: color var(--transition-speed);
+}
+
+.social-links a:hover,
+.social-links a:focus {
+  color: var(--secondary-color);
+}
+
+/* Responsive Adjustments */
+@media (max-width: 64rem) { /* 1024px */
+  .container {
+    padding: var(--padding-lg);
+  }
+}
+
+@media (max-width: 48rem) { /* 768px */
+  .container {
+    padding: var(--padding-md);
   }
 
-  /* Ocultar la barra lateral por defecto */
-  .sidebar {
-    transform: translateX(-100%);
-    transition: transform 0.3s ease-in-out;
+  .section-title {
+    font-size: 1.5rem;
   }
 
-  /* Mostrar la barra lateral cuando está activa */
-  .sidebar.active {
-    transform: translateX(0);
-  }
-
-  /* Ajustar el contenido principal */
-  main {
-    margin-left: 0;
-    padding: 1rem;
-  }
-
-  /* Ajustar el encabezado */
-  header {
-    position: relative;
-  }
-
-  /* Ajustar estilos de acordeón */
   .accordion {
     font-size: 1rem;
-    padding: 0.75rem;
+    padding: var(--padding-sm);
   }
 
-  /* Ajustar paneles de acordeón */
-  .panel {
-    padding: 0 0.5rem;
+  .exercise-list li,
+  .finalization li,
+  .nutrition-list li {
+    padding-left: 1.5625rem; /* 25px */
+    font-size: 0.9rem;
   }
+}
 
-  /* Ajustar texto y elementos */
-  body {
-    font-size: 16px;
-  }
+/* Accessibility Enhancements */
+.accordion:focus {
+  box-shadow: 0 0 0 0.1875rem rgba(52, 152, 219, 0.5); /* 3px */
+}
+
+button:focus {
+  outline: 0.125rem solid var(--accent-color); /* 2px */
+  outline-offset: 0.125rem; /* 2px */
 }
