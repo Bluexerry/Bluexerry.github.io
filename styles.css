@@ -1,0 +1,282 @@
+/* Reset básico */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Fuente y colores base */
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: linear-gradient(to right, #f3f9ff, #edf7fa);
+  color: #333;
+}
+
+/* Encabezado */
+header {
+  text-align: center;
+  padding: 1rem;
+  background-color: #ffffffaa;
+  backdrop-filter: blur(10px);
+  margin-bottom: 1rem;
+  position: relative;
+}
+
+header h1 {
+  font-size: 2rem;
+  color: #007BFF;
+  margin-bottom: 0.5rem;
+}
+
+.disclaimer {
+  font-size: 0.9rem;
+  color: #666;
+}
+
+/* Botón de menú para móviles */
+.menu-toggle {
+  display: none;
+  background-color: #007BFF;
+  color: white;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  border: none;
+  border-radius: 4px;
+  font-size: 1.2rem;
+}
+
+/* Menú lateral fijo */
+.sidebar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 15rem;
+  height: 100vh;
+  background-color: #0066cc;
+  padding-top: 5rem;
+  box-shadow: 2px 0 5px rgba(0,0,0,0.2);
+  transition: transform 0.3s ease-in-out;
+}
+
+.sidebar ul {
+  list-style: none;
+}
+
+.sidebar li {
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+.sidebar a {
+  color: #fff;
+  text-decoration: none;
+  font-weight: bold;
+  display: inline-block;
+  width: 100%;
+  padding: 0.5rem 0;
+  transition: background 0.3s;
+}
+
+.sidebar a:hover {
+  background: #0052a4;
+}
+
+/* Contenido principal */
+main {
+  margin-left: 16rem; /* espacio para la sidebar */
+  padding: 1rem;
+}
+
+/* Secciones principales */
+.intro-section {
+  background-color: #ffffffdd;
+  padding: 2rem;
+  margin-bottom: 2rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.intro-section h2 {
+  color: #17a2b8;
+  margin-bottom: 0.5rem;
+}
+
+.day-section {
+  margin-bottom: 1rem;
+}
+
+/* Botón de acordeón */
+.accordion {
+  background-color: #007BFF;
+  color: white;
+  cursor: pointer;
+  padding: 1rem;
+  width: 100%;
+  text-align: left;
+  outline: none;
+  border: none;
+  border-radius: 6px;
+  margin-bottom: 0.5rem;
+  font-size: 1.1rem;
+  transition: background 0.4s;
+}
+
+.accordion:hover {
+  background-color: #0056b3;
+}
+
+/* Panel que contiene el contenido del acordeón */
+.panel {
+  background-color: #ffffffdd;
+  max-height: 0;
+  opacity: 0;
+  overflow: hidden;
+  transition: max-height 0.4s ease, opacity 0.4s ease;
+  padding: 0 1rem;
+  border-radius: 6px;
+  margin-bottom: 1rem;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.panel.show {
+  max-height: 2000px; /* alto suficiente para exhibir contenido */
+  opacity: 1;
+  padding-bottom: 1rem;
+}
+
+.panel ol,
+.panel ul {
+  margin: 1rem 0;
+  padding-left: 1.5rem;
+}
+
+.panel li {
+  margin-bottom: 0.6rem;
+}
+
+.how-to {
+  font-size: 0.9rem;
+  color: #6c757d;
+  margin-bottom: 0.5rem;
+}
+
+.finalization {
+  list-style: square;
+}
+
+/* Secciones adicionales */
+.nutrition-section {
+  background: #f9f9f9;
+  padding: 1.5rem;
+  border-radius: 8px;
+  margin: 1rem 0;
+}
+
+.nutrition-section h2 {
+  color: #28a745;
+}
+
+.nutrition-section ul,
+.nutrition-section ol {
+  margin-left: 1.5rem;
+}
+
+.nutrition-section p {
+  margin-bottom: 1rem;
+}
+
+.progress-section {
+  background: #f1f8e9;
+  padding: 1.5rem;
+  border-radius: 8px;
+  margin: 1rem 0;
+}
+
+.progress-section h2 {
+  color: #ffc107;
+}
+
+.progress-section ul {
+  margin-left: 1.5rem;
+}
+
+.motivation-section {
+  background: #fff3cd;
+  padding: 1.5rem;
+  border-radius: 8px;
+  margin: 1rem 0;
+}
+
+.motivation-section h2 {
+  color: #dc3545;
+}
+
+.motivation-section blockquote {
+  font-style: italic;
+  margin: 1rem 0;
+  padding-left: 1rem;
+  border-left: 4px solid #6c757d;
+}
+
+/* Footer */
+footer {
+  margin-left: 16rem; /* coincide con el margen de main */
+  text-align: center;
+  padding: 1rem;
+  background-color: #ffffffaa;
+  backdrop-filter: blur(10px);
+  position: relative;
+  box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
+}
+
+@media (max-width: 768px) {
+  /* Mostrar botón de menú */
+  .menu-toggle {
+    display: block;
+    margin: 1rem auto; /* Centrar el botón */
+  }
+
+  /* Ocultar sidebar por defecto */
+  .sidebar {
+    transform: translateX(-100%);
+    width: 200px;
+    padding-top: 2rem;
+    z-index: 1000; /* Asegura que el sidebar esté por encima de otros elementos */
+  }
+
+  /* Mostrar sidebar cuando está activo */
+  .sidebar.active {
+    transform: translateX(0);
+  }
+
+  /* Ajustar el contenido principal */
+  main {
+    margin-left: 0;
+    padding: 1rem;
+  }
+
+  /* Ajustar el footer para móviles */
+  footer {
+    margin-left: 0;
+  }
+}
+
+/* Estilos adicionales para pantallas más pequeñas */
+@media (max-width: 480px) {
+  .accordion {
+    padding: 0.8rem;
+    font-size: 1rem;
+  }
+
+  .panel {
+    padding: 0 0.8rem;
+  }
+
+  .intro-section,
+  .nutrition-section,
+  .progress-section,
+  .motivation-section,
+  .final-notes {
+    padding: 1rem;
+  }
+}
